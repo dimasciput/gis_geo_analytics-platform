@@ -1,0 +1,45 @@
+/* -------------------------------------------------------------------
+   Core of page
+  ------------------------------------------------------------------- */
+
+.page {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr;
+
+  @include media(large-up) {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: max-content auto;
+    grid-template-columns: auto;
+  }
+}
+
+.page__header-menu {
+  background-color: $navbar-background-color;
+  color: $navbar-font-color;
+  display: flex;
+  flex: 1;
+  list-style-type: none;
+  margin: 0;
+  padding: $global-spacing-top-bottom $global-spacing-left-right;
+
+  a {
+    color: $navbar-font-color;
+    text-underline: none;
+  }
+
+  li {
+    padding: 0 $global-spacing-left-right 0 0;
+  }
+
+  li:last-child {
+    margin: 0 0 0 auto;
+    padding: 0;
+  }
+}
+
+main {
+  padding: $global-spacing-top-bottom $global-spacing-left-right;
+  overflow-y: auto;
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content="No description yet."/>
+    <title>Gis-geo Analytics Platform (GAP) Dashboard</title>
+    <meta name="description"
+          content="Gis-geo Analytics Platform (GAP) Dashboard."/>
+    <!-- build:css /assets/styles/vendor.css -->
+    <!-- endbuild -->
+
+    <!-- build:css /assets/styles/main.css -->
+    <link rel="stylesheet" href="/assets/styles/main.css"/>
+    <!-- endbuild -->
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Rubik:300,300i,500,500i"/>
+
+</head>
+<body>
+
+<div id="root"></div>
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a
+            id="btnUpdateBrowser" href="https://outdatedbrowser.com/">Update my
+        browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a>
+    </p>
+</div>
+
+<script>
+  var validBrowser = window.Promise !== undefined && window.Promise !== null && Object.prototype.toString.call(window.Promise.resolve()) === '[object Promise]';
+  if (!validBrowser) {
+    var outdated = document.getElementById("outdated");
+    outdated.style.display = 'block';
+    document.getElementById("btnCloseUpdateBrowser").onmousedown = function () {
+      outdated.style.display = 'none';
+      return false;
+    };
+  }
+</script>
+
+<!-- build:js /assets/scripts/vendor.js -->
+<script src="/assets/scripts/vendor.js"></script>
+<!-- endbuild -->
+<!-- build:js /assets/scripts/bundle.js -->
+<script src="/assets/scripts/bundle.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

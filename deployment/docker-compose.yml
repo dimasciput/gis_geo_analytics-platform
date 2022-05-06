@@ -7,6 +7,7 @@ volumes:
   backups-data:
   rabbitmq:
   node-red-data:
+  frontend:
 
   onedrive-conf:
   onedrive-data:
@@ -89,6 +90,12 @@ services:
     command: celery -A core.celery:app worker -B -l debug
     entrypoint: [ ]
 
+  frontend:
+    image: kartoza/gap_frontend:${FRONTEND_TAG:-0.0.1}
+    entrypoint: setup.sh
+    volumes:
+      - frontend:/home/webapp/dist
+
   nginx:
     image: kartoza/gap_nginx:${NGINX_TAG:-0.0.1}
     container_name: "gap_nginx"
@@ -96,6 +103,7 @@ services:
     volumes:
       - static-data:/home/web/static:ro
       - media-data:/home/web/media:ro
+      - frontend:/frontend:ro
     ports:
       - "${HTTP_PORT:-80}:8080"
     restart: on-failure:5
