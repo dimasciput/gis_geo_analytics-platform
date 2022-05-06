@@ -1,4 +1,6 @@
 """Global context that will be returned for every request."""
+from django.conf import settings
+
 from core.models.preferences import SitePreferences
 from core.serializer.site_preferences import SitePreferencesSerializer
 from gap_data.models import Instance, Link
@@ -14,5 +16,6 @@ def global_context(request):
         links = Link.objects.filter(instance__isnull=True)
     return {
         'preferences': SitePreferencesSerializer(pref).data,
+        'home_url': settings.DJANGO_HOME_URL,
         'links': links
     }

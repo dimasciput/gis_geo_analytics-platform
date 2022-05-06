@@ -17,11 +17,16 @@ urlpatterns = [
     url(r'^auth/', include('django.contrib.auth.urls')),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 urlpatterns += [
     url(r'^proxy', ProxyView.as_view(), name='proxy-view'),
     url(r'^', include('gap_data.urls')),
 ]
+
+# This is for sub domain django
+if settings.DJANGO_SUB_URL:
+    urlpatterns = [
+        url(f'{settings.DJANGO_SUB_URL}/', include(urlpatterns)),
+    ]
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

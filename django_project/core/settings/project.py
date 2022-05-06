@@ -80,8 +80,20 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000
 # ----------           ONEDRIVE         ------------ #
 # -------------------------------------------------- #
 ONEDRIVE_ROOT = '/onedrive/data'
-# -------------------------------------------------- #
 
+# -------------------------------------------------- #
 # ----------           BACKUPS          ------------ #
 # -------------------------------------------------- #
 BACKUPS_ROOT = '/backups'
+
+# -------------------------------------------------- #
+# ----------    FOR DJANGO IN SUB URL   ------------ #
+# -------------------------------------------------- #
+
+DJANGO_SUB_URL = os.environ.get('DJANGO_SUB_URL', None)
+DJANGO_HOME_URL = '/'
+if DJANGO_SUB_URL:
+    DJANGO_HOME_URL = f'/{DJANGO_SUB_URL}'
+
+LOGIN_REDIRECT_URL = DJANGO_HOME_URL
+LOGOUT_REDIRECT_URL = DJANGO_HOME_URL

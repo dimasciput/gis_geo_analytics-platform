@@ -25,6 +25,7 @@ x-common-django:
     - RABBITMQ_HOST=${RABBITMQ_HOST:-rabbitmq}
     - DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE:-core.settings.prod}
     - INITIAL_FIXTURES=${INITIAL_FIXTURES:-True}
+    - DJANGO_SUB_URL=${DJANGO_SUB_URL:-}
 
     # Email where alters should be sent. This will be used by let's encrypt and as the django admin email.
     - ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
