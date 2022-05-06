@@ -209,3 +209,13 @@ devweb-test:
 	@echo "Running in DEVELOPMENT mode"
 	@echo "------------------------------------------------------------------"
 	@docker-compose exec -T dev python manage.py test --keepdb --noinput
+
+# --------------- TESTS ---------------
+run-flake8:
+	@echo
+	@echo "------------------------------------------------------------------"
+	@echo "Running flake8"
+	@echo "------------------------------------------------------------------"
+	@pip install flake8
+	@pip install flake8-docstrings
+	@flake8
